@@ -13,13 +13,9 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as EcoConsciousRouteImport } from './routes/eco-conscious'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as QuoteRouteImport } from './routes/quote'
+import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as TermsRouteImport } from './routes/terms'
-import { Route as ServicesIndexRouteImport } from './routes/services.index'
-import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -41,19 +37,14 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EcoConsciousRoute = EcoConsciousRouteImport.update({
-  id: '/eco-conscious',
-  path: '/eco-conscious',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const QuoteRoute = QuoteRouteImport.update({
-  id: '/quote',
-  path: '/quote',
+const SafetyRoute = SafetyRouteImport.update({
+  id: '/safety',
+  path: '/safety',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -61,46 +52,24 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesIndexRoute = ServicesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesSlugRoute = ServicesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ServicesRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
-  '/eco-conscious': typeof EcoConsciousRoute
   '/privacy': typeof PrivacyRoute
-  '/quote': typeof QuoteRoute
-  '/services': typeof ServicesRouteWithChildren
-  '/terms': typeof TermsRoute
-  '/services/$slug': typeof ServicesSlugRoute
-  '/services/': typeof ServicesIndexRoute
+  '/safety': typeof SafetyRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
-  '/eco-conscious': typeof EcoConsciousRoute
   '/privacy': typeof PrivacyRoute
-  '/quote': typeof QuoteRoute
-  '/terms': typeof TermsRoute
-  '/services/$slug': typeof ServicesSlugRoute
-  '/services': typeof ServicesIndexRoute
+  '/safety': typeof SafetyRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -108,13 +77,9 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
-  '/eco-conscious': typeof EcoConsciousRoute
   '/privacy': typeof PrivacyRoute
-  '/quote': typeof QuoteRoute
-  '/services': typeof ServicesRouteWithChildren
-  '/terms': typeof TermsRoute
-  '/services/$slug': typeof ServicesSlugRoute
-  '/services/': typeof ServicesIndexRoute
+  '/safety': typeof SafetyRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -123,24 +88,17 @@ export interface FileRouteTypes {
     | '/about'
     | '/careers'
     | '/contact'
-    | '/eco-conscious'
     | '/privacy'
-    | '/quote'
+    | '/safety'
     | '/services'
-    | '/terms'
-    | '/services/$slug'
-    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/careers'
     | '/contact'
-    | '/eco-conscious'
     | '/privacy'
-    | '/quote'
-    | '/terms'
-    | '/services/$slug'
+    | '/safety'
     | '/services'
   id:
     | '__root__'
@@ -148,13 +106,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/careers'
     | '/contact'
-    | '/eco-conscious'
     | '/privacy'
-    | '/quote'
+    | '/safety'
     | '/services'
-    | '/terms'
-    | '/services/$slug'
-    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -162,11 +116,9 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
-  EcoConsciousRoute: typeof EcoConsciousRoute
   PrivacyRoute: typeof PrivacyRoute
-  QuoteRoute: typeof QuoteRoute
-  ServicesRoute: typeof ServicesRouteWithChildren
-  TermsRoute: typeof TermsRoute
+  SafetyRoute: typeof SafetyRoute
+  ServicesRoute: typeof ServicesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -199,13 +151,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/eco-conscious': {
-      id: '/eco-conscious'
-      path: '/eco-conscious'
-      fullPath: '/eco-conscious'
-      preLoaderRoute: typeof EcoConsciousRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -213,11 +158,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/quote': {
-      id: '/quote'
-      path: '/quote'
-      fullPath: '/quote'
-      preLoaderRoute: typeof QuoteRouteImport
+    '/safety': {
+      id: '/safety'
+      path: '/safety'
+      fullPath: '/safety'
+      preLoaderRoute: typeof SafetyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -227,54 +172,17 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/': {
-      id: '/services/'
-      path: '/'
-      fullPath: '/services/'
-      preLoaderRoute: typeof ServicesIndexRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/$slug': {
-      id: '/services/$slug'
-      path: '/$slug'
-      fullPath: '/services/$slug'
-      preLoaderRoute: typeof ServicesSlugRouteImport
-      parentRoute: typeof ServicesRoute
-    }
   }
 }
-
-interface ServicesRouteChildren {
-  ServicesSlugRoute: typeof ServicesSlugRoute
-  ServicesIndexRoute: typeof ServicesIndexRoute
-}
-
-const ServicesRouteChildren: ServicesRouteChildren = {
-  ServicesSlugRoute: ServicesSlugRoute,
-  ServicesIndexRoute: ServicesIndexRoute,
-}
-
-const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
-  ServicesRouteChildren,
-)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
-  EcoConsciousRoute: EcoConsciousRoute,
   PrivacyRoute: PrivacyRoute,
-  QuoteRoute: QuoteRoute,
-  ServicesRoute: ServicesRouteWithChildren,
-  TermsRoute: TermsRoute,
+  SafetyRoute: SafetyRoute,
+  ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
